@@ -1,3 +1,7 @@
+body {
+    background-color: black;
+}
+
 .grid {
     display: grid;
     grid-template-columns: repeat(5, 1fr);
@@ -13,7 +17,7 @@
     width: 100%;
     border-radius: 5px;
     position: relative;
-    transition: all 400ms ease;
+    transition: all 800ms ease;
     transform-style: preserve-3d;
 }
 
@@ -28,9 +32,9 @@
 }
 
 .front {
-    background-image: url(../imagens/biblia.jpg);
     transform: rotateY(180deg);
-    border: 6px solid black;
+    border: 3px solid #e0e0e0;
+    border-radius: 5px;
 }
 
 .back {
