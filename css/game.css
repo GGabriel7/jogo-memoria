@@ -1,19 +1,15 @@
-body {
-    background-color: black;
-}
-
 .grid {
     display: grid;
     grid-template-columns: repeat(5, 1fr);
     gap: 15px;
     width: 97.5%;
     max-width: 800px;
-    margin: 50px auto;
+    margin: 10px auto;
+    height: 100vh;
 }
 
 .card {
     aspect-ratio: 3/4;
-    background-color: brown;
     width: 100%;
     border-radius: 5px;
     position: relative;
@@ -29,6 +25,7 @@ body {
     background-size: cover;
     box-shadow: 0 0 3px #00000088;
     border-radius: 5px;
+    transition: all 1s ease;
 }
 
 .front {
@@ -42,6 +39,10 @@ body {
     backface-visibility: hidden;
 }
 
-.card:hover {
+.revelarCard {
     transform: rotateY(180deg);
 } 
+
+.cardDesabilit {
+    filter: saturate(0);
+}
