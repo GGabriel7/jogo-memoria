@@ -1,3 +1,7 @@
 .grid {
     grid-template-columns: repeat(4, 1fr);
 }
+
+header {
+    font-size: 1em;
+}
