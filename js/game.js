@@ -1,4 +1,7 @@
 const grid = document.querySelector('.grid')
+const player = document.querySelector('.player')
+const tempo = document.querySelector('.tempo')
+const minuto = document.querySelector('.minuto')
 
 //Arrey com as imagens
 const personagens = [
@@ -29,8 +32,10 @@ let card2 = ''
 const endGame = () => {
     const cardDesabilit = document.querySelectorAll('.cardDesabilit')
 
-    if (cardDesabilit.length === 20) {
-        alert('Parabens! Você terminou')
+    if (cardDesabilit.length == 20) {
+        clearInterval(this.loop2)
+        clearInterval(this.loop1) //para a contagem
+        alert(`Parabens ${player.innerHTML}! Seu Tempo Foi: ${minutos.innerHTML} : ${tempo.innerHTML}`)
     }
 }
 
@@ -43,11 +48,12 @@ const checarCard = () => {
         setTimeout(() => {   
             card1.firstChild.classList.add('cardDesabilit')
             card2.firstChild.classList.add('cardDesabilit')
+
             card1 = ''
             card2 = ''
+
+            endGame()
         }, 500)
-        
-        endGame()
     } else {
       setTimeout(() => {
         card1.classList.remove('revelarCard')
@@ -107,4 +113,30 @@ const loadGame = () => {
     })
 }
 
-loadGame()
+// Função do tempo
+const temporizador = () => {
+    this.loop1 = setInterval(() => {
+        const timer = +tempo.innerHTML
+        tempo.innerHTML = timer + 1
+        if (timer === 59) {
+        tempo.innerHTML = 0
+        }
+    }, 1000)
+
+    this.loop2 = setInterval(() => {
+    const minutos = +minuto.innerHTML
+    minuto.innerHTML = minutos + 1
+    }, 60000)
+} 
+
+
+window.onload = () => {
+    player.innerHTML = localStorage.getItem('player')
+
+    loadGame()
+
+    window.onclick = () => {
+        temporizador()
+        window.onclick = null
+    }
+}
